@@ -10,7 +10,7 @@ module SamlIdp
     extend ActiveSupport::Concern
 
     included do
-      helper_method :saml_acs_url if respond_to? :helper_method
+      helper_method :saml_response_url if respond_to? :helper_method
     end
 
     attr_accessor :algorithm
@@ -111,6 +111,10 @@ module SamlIdp
 
     def saml_request_id
       saml_request.request_id
+    end
+
+    def saml_response_url
+      saml_request.response_url
     end
 
     def saml_acs_url

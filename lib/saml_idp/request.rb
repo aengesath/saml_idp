@@ -69,11 +69,7 @@ module SamlIdp
     end
 
     def response_url
-      if authn_request?
-        acs_url
-      elsif logout_request?
-        logout_url
-      end
+      logout_request? ? logout_url : acs_url
     end
 
     def log(msg)

@@ -65,8 +65,7 @@ module SamlIdp
     end
 
     def logout_url
-      service_provider.assertion_consumer_logout_service_url ||
-        params["return_to"].to_s # Required for Zendesk which doesn't support SLO
+      service_provider.assertion_consumer_logout_service_url
     end
 
     def response_url
